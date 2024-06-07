@@ -1,0 +1,10 @@
+ortools==9.10.4067
+haversine==2.8.1
+polyline==2.0.2
+python-dotenv==1.0.1
+folium==0.16.0
+pandas
+numpy
+seaborn
+fastapi
+uvicorn
