@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRP Map</title>
+</head>
+<body>
+    <h1>VRP Problem</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="csvfile">
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Filter by Province</h2>
+    <form action="/filter-by-province" method="post">
+        <select name="province" required>
+            {% for province in provinces %}
+            <option value="{{ province }}">{{ province }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Select Province</button>
+    </form>
+
+    {% if dates %}
+    <h2>Filter by Date</h2>
+    <form action="/filter-by-date" method="post">
+        <select name="order_creation" required>
+            {% for date in dates %}
+            <option value="{{ date }}">{{ date }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Select Date</button>
+    </form>
+    {% endif %}
+
+    {% if map %}
+    <h2>Map Routing</h2>
+        {{map}}
+    {% endif %}
+</body>
+</html>

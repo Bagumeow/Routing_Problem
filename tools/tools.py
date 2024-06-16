@@ -5,8 +5,13 @@ import dotenv
 import folium
 import os
 
+
+
 dotenv.load_dotenv()
 GOONG_API_KEY = os.getenv('GOONG_API_KEY')
+def take_tuple_latlong(latlong):
+    latlong = latlong.replace('(','').replace(')','').split(',')
+    return (float(latlong[0]),float(latlong[1]))
 
 def value_latlong_route(latlong:list,routing:List[List[int]]):
     list_rouing_latlong = []
